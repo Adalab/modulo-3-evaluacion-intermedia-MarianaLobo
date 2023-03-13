@@ -18,10 +18,25 @@ function App() {
   /* FUNCIONES HANDLER */
 
   /* FUNCIONES Y VARIABLES AUXILIARES PARA PINTAR EL HTML */
+  const renderQuotes = () => {
+    return quotes.map((oneQuote, index) => {
+      return <li className='quote-list' key={index}>
+        <p>{oneQuote.quote}</p>
+        <span>-</span>
+        <p className='quote-character'>{oneQuote.character}</p>
+      </li>
+    }
+    )
+  }
 
   /* HTML */
   return <div className="App">
     <h1>Frases de Friends</h1>
+    <section>
+      <ul>
+        {renderQuotes()}
+      </ul>
+    </section>
   </div>;
 }
 

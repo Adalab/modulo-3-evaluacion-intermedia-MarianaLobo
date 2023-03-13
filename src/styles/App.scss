@@ -1,1 +1,12 @@
 /* Aquí van tus estilos */
+.quote-list {
+    border: 2px solid peru;
+    margin: 5px;
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+}
+.quote-character {
+    font-weight: bold;
+}
