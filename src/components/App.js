@@ -1,13 +1,12 @@
 /* SECCIÓN DE IMPORT */
-
+import { useState, useEffect } from 'react';
 import '../styles/App.scss';
-import data from '../data/data.json'
-import { useState } from 'react';
+
 
 /* SECCIÓN DEL COMPONENTE */
 function App() {
   /* VARIABLES ESTADO (DATOS) */
-  const [quotes, setQuotes] = useState(data);
+  const [quotes, setQuotes] = useState([]);
   const [searchCharacter, setSearchCharacter] = useState('');
   const [searchQuote, setSearchQuote] = useState('');
   const [newQuote, setNewQuote] = useState({
@@ -39,6 +38,14 @@ function App() {
     //para vaciar el formulario
     setNewQuote({ quote: '', character: '' });
   }
+//Petición de los datos al servidor
+  useEffect(() => {
+    fetch('https://beta.adalab.es/curso-intensivo-fullstack-recursos/apis/quotes-friends-tv-v1/quotes.json')
+      .then(response => response.json())
+      .then(data => {
+        setQuotes(data);
+    })
+  }, [] );
 
   /* FUNCIONES Y VARIABLES AUXILIARES PARA PINTAR EL HTML */
   const renderQuotes = () => {
