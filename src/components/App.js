@@ -68,7 +68,7 @@ function App() {
   /* HTML */
   return <div className="App">
     <h1>Frases de Friends</h1>
-    <section className='Search-section'>
+    <section className='search-section'>
       <form>
         <label htmlFor='quote'>Filtrar por frase:
           <input
@@ -81,7 +81,7 @@ function App() {
           />
         </label>
         <label>Filtrar por personaje:
-          <select value={searchCharacter} name='character' id='character' onChange={handleCharacterSearch}>
+          <select className='select-character' value={searchCharacter} name='character' id='character' onChange={handleCharacterSearch}>
             <option disabled value=''>
               Todos
             </option>
@@ -91,7 +91,7 @@ function App() {
             <option value='Joey'>
             Joey
             </option>
-            <option value='Phoebe'>
+            <option value='Monica'>
             Monica
             </option>
             <option value='Phoebe'>
@@ -113,8 +113,9 @@ function App() {
       </ul>
     </section>
     <section className='new-quote-section'>
-      <form>
+      <form className='new-quote-section-form'>
         <h2>Añade una nueva frase</h2>
+        <label>Nueva frase: 
         <input
             className='new-quote-input'
             type='text'
@@ -123,7 +124,9 @@ function App() {
             placeholder='Nueva frase'
             onChange={handleInputForm}
             value= {newQuote.quote}
-        />
+          />
+        </label>
+        <label>Personaje: 
          <input
             className='new-character-input'
             type='text'
@@ -133,6 +136,7 @@ function App() {
             onChange={handleInputForm}
             value= {newQuote.character}
           />
+          </label>
         <input className="new-quote-btn" type="submit" value="Añadir" onClick={handleAddNewQuote}/>
       </form>
     </section>
